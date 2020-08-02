@@ -1,0 +1,41 @@
+echo "# Assignment9.1-Py" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/KaylaLaven/Assignment9.1-Py.git
+git push -u origin master
+
+# -*- coding: utf-8 -*-
+"""Created on Sun Aug  2 14:12:55 2020
+@author: Kayla Laven
+"""
+import os
+directory=input("Enter the directory name:")
+if(os.path.exists(directory)==True):
+    print("The directory exists.")
+    fn=open("D:\\userdata\\user.txt","w+")
+    name=input("Enter the user's name:")
+    address=input("Enter the user's address:")
+    phone=input("Enter the user's phone number:")
+    fn.writelines([name,address,phone])
+    fn.close()
+    fr=open("D:\\userdata\\user.txt","r+")
+    info=fr.readlines()
+    for line in info:
+        print(line)
+else:
+    print("No such directory was in existence")
+    os.mkdir(directory)
+    print("Now", directory," has been created.")
+    fn=open("D:\\userdata\\user.txt","w+")
+    name=input("Enter the user's name:")
+    address=input("Enter the user's address:")
+    phone=input("Enter the user's phone number:")
+    fn.writelines([name,address,phone])
+    fn.close()
+    fr=open("D:\\userdata\\user.txt","r+")
+    info=fr.readlines()
+    for line in info:
+        print(line,"\n")
+print("Program ends here")
+                
